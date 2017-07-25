@@ -1,0 +1,280 @@
+{
+  "axes": [
+    {
+      "scale": "x",
+      "type": "x"
+    },
+    {
+      "scale": "y",
+      "type": "y"
+    }
+  ],
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {
+          "col": "data",
+          "idx": [
+            "donald",
+            "trump"
+          ],
+          "val": 20
+        },
+        {
+          "col": "data",
+          "idx": [
+            "van",
+            "jones"
+          ],
+          "val": 17
+        },
+        {
+          "col": "data",
+          "idx": [
+            "nothing",
+            "burger"
+          ],
+          "val": 16
+        },
+        {
+          "col": "data",
+          "idx": [
+            "\u2014",
+            "amazon"
+          ],
+          "val": 16
+        },
+        {
+          "col": "data",
+          "idx": [
+            "tax",
+            "\u2014"
+          ],
+          "val": 16
+        },
+        {
+          "col": "data",
+          "idx": [
+            "trump",
+            "\u2019"
+          ],
+          "val": 13
+        },
+        {
+          "col": "data",
+          "idx": [
+            "fake",
+            "time"
+          ],
+          "val": 12
+        },
+        {
+          "col": "data",
+          "idx": [
+            "\ud83d",
+            "\ude02"
+          ],
+          "val": 11
+        },
+        {
+          "col": "data",
+          "idx": [
+            "fake",
+            "news"
+          ],
+          "val": 11
+        },
+        {
+          "col": "data",
+          "idx": [
+            "russia-trump",
+            "collusion"
+          ],
+          "val": 10
+        },
+        {
+          "col": "data",
+          "idx": [
+            "president",
+            "trump"
+          ],
+          "val": 10
+        },
+        {
+          "col": "data",
+          "idx": [
+            "pays",
+            "taxes"
+          ],
+          "val": 9
+        },
+        {
+          "col": "data",
+          "idx": [
+            "internet",
+            "tax"
+          ],
+          "val": 9
+        },
+        {
+          "col": "data",
+          "idx": [
+            "big",
+            "nothing"
+          ],
+          "val": 9
+        },
+        {
+          "col": "data",
+          "idx": [
+            "story",
+            "big"
+          ],
+          "val": 9
+        },
+        {
+          "col": "data",
+          "idx": [
+            "cnn's",
+            "van"
+          ],
+          "val": 9
+        },
+        {
+          "col": "data",
+          "idx": [
+            "state",
+            "sales"
+          ],
+          "val": 8
+        },
+        {
+          "col": "data",
+          "idx": [
+            "time",
+            "covers"
+          ],
+          "val": 8
+        },
+        {
+          "col": "data",
+          "idx": [
+            "collects",
+            "state"
+          ],
+          "val": 8
+        },
+        {
+          "col": "data",
+          "idx": [
+            "collusion",
+            "story"
+          ],
+          "val": 8
+        }
+      ]
+    },
+    {
+      "name": "stats",
+      "source": "table",
+      "transform": [
+        {
+          "keys": [
+            "data.idx"
+          ],
+          "type": "facet"
+        },
+        {
+          "type": "stats",
+          "value": "data.val"
+        }
+      ]
+    }
+  ],
+  "height": 500,
+  "legends": [],
+  "marks": [
+    {
+      "from": {
+        "data": "table",
+        "transform": [
+          {
+            "keys": [
+              "data.col"
+            ],
+            "type": "facet"
+          },
+          {
+            "height": "data.val",
+            "point": "data.idx",
+            "type": "stack"
+          }
+        ]
+      },
+      "marks": [
+        {
+          "properties": {
+            "enter": {
+              "fill": {
+                "field": "data.col",
+                "scale": "color"
+              },
+              "width": {
+                "band": true,
+                "offset": -1,
+                "scale": "x"
+              },
+              "x": {
+                "field": "data.idx",
+                "scale": "x"
+              },
+              "y": {
+                "field": "y",
+                "scale": "y"
+              },
+              "y2": {
+                "field": "y2",
+                "scale": "y"
+              }
+            }
+          },
+          "type": "rect"
+        }
+      ],
+      "type": "group"
+    }
+  ],
+  "padding": "auto",
+  "scales": [
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.idx"
+      },
+      "name": "x",
+      "range": "width",
+      "type": "ordinal",
+      "zero": false
+    },
+    {
+      "domain": {
+        "data": "stats",
+        "field": "sum"
+      },
+      "name": "y",
+      "nice": true,
+      "range": "height"
+    },
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.col"
+      },
+      "name": "color",
+      "range": "category20",
+      "type": "ordinal"
+    }
+  ],
+  "width": 960
+}
